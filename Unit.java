@@ -17,12 +17,12 @@ public class Unit {
     protected int unitCost;
     protected int unitHeight;
 
-    public TypeOfArmy typeOfArmy;
+    public TypeOfArmy faction;
 
     public Unit(String name, int healthPoint, int move, int attackRange, int attackDamage,
                 int armor, int penetrationArmor, int spritePath, int currentCoordQ,
                 int currentCoordR, int currentCoordS, int unitCost, int unitHeight,
-                TypeOfArmy typeOfArmy) {
+                TypeOfArmy faction) {
         this.name = name;
         this.healthPoint = healthPoint;
         this.move = move;
@@ -36,7 +36,7 @@ public class Unit {
         this.currentCoordS = currentCoordS;
         this.unitCost = unitCost;
         this.unitHeight = unitHeight;
-        this.typeOfArmy = typeOfArmy;
+        this.faction = faction;
     }
 
     public String getName() {
@@ -56,7 +56,7 @@ public class Unit {
     }
 
     public TypeOfArmy getFaction() {
-        return this.typeOfArmy;
+        return this.faction;
     }
 
     public int getCurrentCoordQ() {
