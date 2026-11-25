@@ -48,4 +48,28 @@ public class EnvironmentTest {
         assert(env.getSpritePath().equals("newSprite.png")); // Should be set to "newSprite.png"
     }
 
+    // Ici on teste si la méthode setDamageOfTrap fonctionne correctement pour le type de piège BOMB
+    @Test
+    public void testSetDamageOfTrapForBomb() {
+        Environment env = new Environment(TypeOfTrap.BOMB, 0, 0, "sprite.png");
+        env.setDamageOfTrap(5);
+        assert(env.getDamageOfTrap() == 10); // Should be set to 10
+    }
+
+    // Ici on teste si la méthode setDamageOfTrap fonctionne correctement pour le type de piège SPIKE
+    @Test
+    public void testSetDamageOfTrapForSpike() {
+        Environment env = new Environment(TypeOfTrap.SPIKE, 0, 0, "sprite.png");
+        env.setDamageOfTrap(5);
+        assert(env.getDamageOfTrap() == 5); // Should be set to 5
+    }
+
+    // Ici on teste si la méthode ActivateTrap fonctionne correctement quand il n'y a pas d'activation de piège
+    @Test
+    public void testActivateTrapNoActivation() {
+        Environment env = new Environment(TypeOfTrap.BOMB, 0, 0, "sprite.png");
+        env.activateTrap();
+        assert(env.getNumberOfTrap() == 0); // Should remain 0
+    }
+
 }

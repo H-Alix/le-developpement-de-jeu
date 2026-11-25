@@ -14,7 +14,7 @@ public class Unit {
     protected int armor;
     protected int penetrationArmor;
 
-    protected int spritePath;
+    protected String spritePath;
     protected int currentCoordQ;
     protected int currentCoordR;
     protected int currentCoordS;
@@ -25,7 +25,7 @@ public class Unit {
     public TypeOfArmy faction;
 
     public Unit(String name, int healthPoint, int move, int attackRange, int attackDamage,
-                int armor, int penetrationArmor, int spritePath, int currentCoordQ,
+                int armor, int penetrationArmor, String spritePath, int currentCoordQ,
                 int currentCoordR, int currentCoordS, int unitCost, int unitHeight,
                 TypeOfArmy faction) {
         this.name = name;
@@ -78,6 +78,10 @@ public class Unit {
 
     public int getMove() {
         return this.move;
+    }
+
+    public String getSpritePath() {
+        return this.spritePath;
     }
 
     public void moveUnit(int newCoordQ, int newCoordR, int newCoordS) {
