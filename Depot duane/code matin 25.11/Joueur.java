@@ -12,15 +12,13 @@ public class Joueur {
     private int score;
 
     // Placeholders tant que les classes Unite et Faction  sotn pas fini
-    private ArrayList<Object> listUnit; 
-    private String armee;               
+    private Armee armee;
 
     public Joueur(int id, String nom) {
         this.id = id;
         this.nom = nom;
         this.score = 0;
-        this.listUnit = new ArrayList<>();
-        this.armee = "AUCUNE"; 
+        this.armee = null;
     }
 
     public int getId() {
@@ -39,19 +37,40 @@ public class Joueur {
         this.score = p_score;
     }
 
-    public String getArmee() {
+    public Armee getArmee() {
         return armee;
     }
 
-    public ArrayList<Object> getListUnit() { 
-        return listUnit;
+    public ArrayList<Unit> getListUnit() {
+        if (armee == null) {
+            return new ArrayList<>();
+        }
+
+        return armee.getUnites();
     }
 
     /**
      * Permet au joueur de choisir sa faction (HUMAIN ou ORK).
      */
     public void selectArmee(String p_faction) {
-        this.armee = p_faction;
-        System.out.println(this.nom + " a choisi l'armée : " + this.armee);
+
+        if (p_faction == null) {
+            System.out.println("Aucune faction sélectionnée.");
+            return;
+        }
+
+        if (p_faction.equalsIgnoreCase("HUMAN")) {
+            this.armee = new ArmeeHumaine();
+
+        } else if (p_faction.equalsIgnoreCase("ORK")) {
+            this.armee = new ArmeeOrc();
+
+        } else {
+            System.out.println("Faction inconnue.");
+            return;
+        }
+
+        System.out.println(this.nom + " a choisi l'armée : "
+                + this.armee.getFaction());
     }
 }
