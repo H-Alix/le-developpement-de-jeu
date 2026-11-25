@@ -64,6 +64,19 @@ public class Affichage extends JPanel {
             }
             g2.fillOval(cx - rayonPion, cy - rayonPion, rayonPion * 2, rayonPion * 2);
         }
+        for (Decor decor : world.getListDecor()){
+                    Point[] c2 = layout.hexCorner(decor.getHexassocie());
+                    int[] X2 = new int[6], Y2 = new int[6];
+                    for (int k = 0; k < 6; k++){
+                        X2[k] = (int) Math.round(c2[k].x);
+                        Y2[k] = (int) Math.round(c2[k].y);
+                    }
+                    g2.setColor(Color.GRAY);
+                    g2.fillPolygon(X2, Y2, 6);
+                    g2.drawPolygon(X2, Y2, 6);
+                    
+                }
+            }
     }
 
 
