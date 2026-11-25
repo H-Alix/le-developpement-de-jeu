@@ -1,5 +1,7 @@
+import java.awt.event.MouseEvent;
 import java.util.Random;
 import javax.swing.JFrame;
+import javax.swing.event.MouseInputAdapter;
 public class Main {
 
     private final String nameGame = "TacticalWar";
@@ -62,12 +64,24 @@ public class Main {
     public static void main(String[] args) {
         Main game = new Main();
         World monde = new World(10, 20);
-        JFrame f = new JFrame("TacticalWar_BETA");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.add(new Affichage(monde));
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
+        JFrame frame = new JFrame("TacticalWar_BETA");
+        Affichage Affi = new Affichage(monde);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(Affi);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        Affi.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mousePressed(MouseEvent mouse){
+                Hex HexClicked = Affi.getHexFromCoords(mouse.getX(), mouse.getY());
+                if (HexClicked != null){
+                    System.out.println("q=" + HexClicked.q + " r = " + HexClicked.r + "s = " + HexClicked.s);
+                }
+                System.out.println(mouse.getX()+ "," + mouse.getY());
+            }
+        });
+        
 
 
         // 1. Création des joueurs et choix des factions
