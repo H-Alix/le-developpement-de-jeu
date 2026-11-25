@@ -1,5 +1,3 @@
-package Latest
-
 public class Infantry extends Unit {
 
     protected int squadSize;
