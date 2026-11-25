@@ -80,4 +80,18 @@ class Hex
         return subtract(b).length();
     }
 
+        public int getQ() {
+        return q;
+    }
+
+
+    public int getR() {
+        return r;
+    }
+
+
+    public int getS() {
+        return s;
+    }
+
 }
