@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Librairie du site redblobgames.com
+ * @return Le visuel du monde d'hexagones avec affichage des unités et des décors.
+ */
 
 class Hex
 {
@@ -74,6 +78,21 @@ class Hex
     public int distance(Hex b)
     {
         return subtract(b).length();
+    }
+
+
+    public int getQ() {
+        return q;
+    }
+
+
+    public int getR() {
+        return r;
+    }
+
+
+    public int getS() {
+        return s;
     }
 
 }
