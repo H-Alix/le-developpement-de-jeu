@@ -11,7 +11,6 @@ public class LightInfantry extends Infantry {
     }
 
     // Sprint : l'unité court et gagne 1 point de déplacement
-    public void sprint() {
-        this.move += 1;
+    public void sprint() {this.move += 1;
     }
 }
