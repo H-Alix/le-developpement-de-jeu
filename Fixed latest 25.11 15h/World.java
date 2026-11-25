@@ -44,6 +44,11 @@ public class World {
         return radius; 
     }
 
+    public List<Decor> getListDecor() {
+        return ListDecor;
+    }
+
+
       public List<Hex> getListHex() {
         return ListHex;
     }
