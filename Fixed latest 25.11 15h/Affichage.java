@@ -11,14 +11,14 @@ import javax.swing.JPanel;
 
 
 public class Affichage extends JPanel {
-    private final World World;
+    private final World world;
     private final Layout layout;
     
 
     public Affichage(World p_world){
-        this.World = p_world;
-        this.layout = new Layout(new Point(World.HexSize, World.HexSize), new Point(World.WorldWidth / 2.0 + 50, World.WorldHeight / 2.0 + 50));
-        setPreferredSize(new Dimension ((int)Math.round(this.World.WorldWidth)+100, (int)Math.round(this.World.WorldHeight)+100));
+        this.world = p_world;
+        this.layout = new Layout(new Point(world.HexSize, world.HexSize), new Point(world.WorldWidth / 2.0 + 50, world.WorldHeight / 2.0 + 50));
+        setPreferredSize(new Dimension ((int)Math.round(this.world.WorldWidth)+500, (int)Math.round(this.world.WorldHeight)+100));
         setBackground(Color.BLACK); 
     }
 
@@ -34,7 +34,7 @@ public class Affichage extends JPanel {
         Graphics2D g2 = (Graphics2D) p_g;
 
         // 1. Dessin de tous les hexagones
-        for (Hex h : World.getListHex()) {
+        for (Hex h : world.getListHex()) {
             Point[] c = layout.hexCorner(h);
             int[] X = new int[6], Y = new int[6];
             for (int k = 0; k < 6; k++){
@@ -47,8 +47,8 @@ public class Affichage extends JPanel {
         }
 
         // 2. Dessin de toutes les unités (en dehors de la boucle des hexagones)
-        int rayonPion = (int) Math.round(World.HexSize * 0.6);
-        for (Unit u : World.getListUnit()) {
+        int rayonPion = (int) Math.round(world.HexSize * 0.6);
+        for (Unit u : world.getListUnit()) {
             if (u.getHealthPoint() <= 0) {
                 continue; 
             }
@@ -77,7 +77,7 @@ public class Affichage extends JPanel {
                     
                 }
             }
-    }
+    
 
 
     Layout getlayout() {
@@ -86,7 +86,6 @@ public class Affichage extends JPanel {
 
     public Hex getHexFromCoords(int x, int y){
         Hex HexAtCoord = layout.pixelToHex(new Point(x, y));
-        return World.getHex(HexAtCoord.q, HexAtCoord.r);
+        return world.getHex(HexAtCoord.q, HexAtCoord.r);
     }
-
 }
