@@ -96,6 +96,12 @@ public class Main {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        Decor decor1 = new Decor(" ", monde);
+        Decor decor2 = new Decor(" ", monde);
+        Decor decor3 = new Decor(" ", monde);
+        Decor decor4 = new Decor(" ", monde);
+        Decor decor5 = new Decor(" ", monde);
+        Decor decor6 = new Decor(" ", monde);
 
         Affi.addMouseListener(new MouseInputAdapter() {
             @Override
